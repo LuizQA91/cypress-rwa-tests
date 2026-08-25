@@ -1,0 +1,45 @@
+name: Cypress E2E Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Baixa o código do seu repositório de testes
+      - name: Checkout cypress-rwa-tests
+        uses: actions/checkout@v4
+
+      # 2. Configura a versão do Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 3. Baixa e inicia a aplicação alvo (RWA) em segundo plano
+      - name: Checkout & Start RWA App
+        run: |
+          git clone https://github.com/cypress-io/cypress-realworld-app.git
+          cd cypress-realworld-app
+          yarn install
+          yarn dev &
+          npx wait-on http://localhost:3000
+
+      # 4. Instala as dependências e executa os testes do Cypress
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build --if-present
+          wait-on: 'http://localhost:3000'
+
+      # 5. Salva screenshots em caso de falha nos testes
+      - name: Upload Cypress Screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
