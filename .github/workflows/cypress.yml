@@ -10,7 +10,7 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
-      # 1. Clona o repositório dos seus testes
+      # 1. Clona o repositório de testes
       - name: Checkout cypress-rwa-tests
         uses: actions/checkout@v4
 
@@ -20,24 +20,25 @@ jobs:
         with:
           node-version: 22
 
-      # 3. Clona, instala dependências e popula o banco de dados do RWA
-      - name: Setup & Seed RWA App
+      # 3. Clona e instala dependências do RWA
+      - name: Setup RWA App
         run: |
           git clone https://github.com/cypress-io/cypress-realworld-app.git
           cd cypress-realworld-app
           yarn install
-          yarn db:seed
 
-      # 4. Inicia a aplicação RWA e roda a suíte de testes
+      # 4. Inicia o RWA em modo de teste e executa a suíte
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v6
         with:
           working-directory: .
-          start: yarn --cwd cypress-realworld-app dev
+          start: yarn --cwd cypress-realworld-app start:react
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
+        env:
+          NODE_ENV: test
 
-      # 5. Salva as evidências caso ocorra alguma falha
+      # 5. Salva screenshots em caso de falhas
       - name: Upload Cypress Screenshots
         if: failure()
         uses: actions/upload-artifact@v4
