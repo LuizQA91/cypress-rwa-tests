@@ -1,0 +1,11 @@
+{
+  "validUser": {
+    "username": "Erick.Zieme",
+    "password": "s3cret",
+    "name": "Narciso G"
+  },
+  "invalidUser": {
+    "username": "Erick.Jacquin",
+    "password": "senha_errada"
+  }
+}

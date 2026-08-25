@@ -1,0 +1,10 @@
+{
+    "requestPayment": {
+        "amount": "200",
+        "note": "Me devolve!"
+    },
+    "directPayment": {
+        "amount": "128",
+        "note": "Toma o que é teu."
+    }
+}

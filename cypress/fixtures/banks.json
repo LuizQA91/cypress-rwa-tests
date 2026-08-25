@@ -1,0 +1,7 @@
+{
+    "bank": {
+        "name": "Nubank",
+        "routingNumber": "123456789",
+        "accountNumber": "987654321"
+    }
+}
