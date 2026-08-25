@@ -20,12 +20,13 @@ jobs:
         with:
           node-version: 22
 
-      # 3. Baixa e inicia a aplicação alvo (RWA) em segundo plano
+      # 3. Baixa, popula o banco e inicia a aplicação RWA
       - name: Checkout & Start RWA App
         run: |
           git clone https://github.com/cypress-io/cypress-realworld-app.git
           cd cypress-realworld-app
           yarn install
+          yarn db:seed
           yarn dev &
           npx wait-on http://localhost:3000
 
