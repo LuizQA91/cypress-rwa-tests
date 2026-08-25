@@ -21,7 +21,7 @@ O objetivo deste repositório é aplicar boas práticas de automação de testes
 
 Antes de iniciar, certifique-se de ter instalado na sua máquina:
 
-* **Node.js** (Versão 18.x ou superior) — [Download](https://nodejs.org/)
+* **Node.js** (Versão 22.x ou superior) — [Download](https://nodejs.org/)
 * **Git** — [Download](https://git-scm.com/)
 * **Yarn** ou **npm** (gerenciador de pacotes)
 
