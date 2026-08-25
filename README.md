@@ -106,9 +106,12 @@ npx cypress run --spec "cypress/e2e/NOME_DO_TESTE.cy.js"
 ├── cypress/
 │   ├── e2e/               # Arquivos de testes agrupados por funcionalidade
 │   ├── fixtures/          # Massas de dados estáticas (JSON)
+│   ├── pages/             # Mapeamento de elementos e ações das páginas (Page Objects)
+│   ├── screenshots/       # Capturas de tela geradas durante falhas ou testes
 │   └── support/           # Comandos customizados (commands.js) e configurações globais (e2e.js)
 ├── .gitignore             # Arquivos e pastas ignorados pelo Git
 ├── cypress.config.js      # Configurações globais do Cypress
+├── package-lock.json      # Mapeamento exato da árvore de dependências
 ├── package.json           # Dependências e scripts do projeto
 └── README.md              # Documentação do projeto
 ```
