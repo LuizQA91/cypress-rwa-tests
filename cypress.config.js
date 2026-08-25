@@ -6,6 +6,7 @@ module.exports = defineConfig({
     env: {
       apiUrl: 'http://localhost:3001'
     },
+    defaultCommandTimeout: 10000,
     experimentalRunAllSpecs: true,
     setupNodeEvents(on, config) {
       return config;
