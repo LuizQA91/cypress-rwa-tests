@@ -20,9 +20,7 @@ describe('Validação da tela Bank Accounts', () => {
 
             BankAccountsPage.deleteBankAccountByName(bankName);
 
-            cy.contains(bankName).then(($item) => {
-                expect($item.text().trim()).to.contain('(Deleted)');
-            });
+            cy.contains(bankName).should('contain.text', '(Deleted)');
         });
     });
 });
