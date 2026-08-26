@@ -23,7 +23,7 @@ jobs:
       # 3. Prepara, popula e compila o RWA antes de subir os servidores
       - name: Setup, Seed and Start RWA App
         run: |
-          git clone https://github.com/cypress-io/cypress-realworld-app.git
+          git clone https://github.com/LuizQA91/RWA.git
           cd cypress-realworld-app
           yarn install
           yarn build
