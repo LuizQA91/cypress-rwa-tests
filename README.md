@@ -37,10 +37,10 @@ Em um terminal separado, clone o repositório oficial da aplicação RWA e inici
 
 ```bash
 # Clone o repositório do RWA
-git clone https://github.com/cypress-io/cypress-realworld-app.git
+git clone https://github.com/LuizQA91/RWA.git
 
 # Acesse a pasta do RWA
-cd cypress-realworld-app
+cd RWA
 
 # Instale as dependências
 yarn install
@@ -65,21 +65,58 @@ git clone https://github.com/LuizQA91/cypress-rwa-tests.git
 cd cypress-rwa-tests
 
 # Instale as dependências
-npm install
+yarn install
 ```
 
 ---
 
-## 🚀 Executando os Testes
 
-Com a aplicação RWA rodando no `http://localhost:3000`, execute os testes utilizando uma das opções abaixo:
+## 📊 Configuração do Allure Report
+
+Para instalar os pacotes do Allure Report no projeto, execute:
+
+```bash
+yarn add -D @shelex/cypress-allure-plugin allure-commandline
+```
+
+Certifique-se de configurar a integração no seu arquivo `cypress.config.js`:
+
+```javascript
+const { defineConfig } = require('cypress');
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+
+module.exports = defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      allureWriter(on, config);
+      return config;
+    },
+    env: {
+      allure: true,
+      allureReuseAfterSpec: true
+    }
+  }
+});
+```
+
+E adicione no arquivo `cypress/support/e2e.js`:
+
+```javascript
+import '@shelex/cypress-allure-plugin';
+```
+
+---
+
+## 🚀 Executando os Testes e Gerando Relatórios
+
+Com a aplicação RWA rodando no `http://localhost:3000`, execute os testes e gere os relatórios do Allure utilizando as opções abaixo:
 
 ### 🎭 Modo Interativo (Interface Gráfica do Cypress)
 
 Abre o Test Runner do Cypress para acompanhar visualmente a execução em tempo real:
 
 ```bash
-npx cypress open
+yarn cypress open
 ```
 
 ### ⚡ Modo Headless (Execução Silenciosa no Terminal)
@@ -87,15 +124,30 @@ npx cypress open
 Roda toda a suíte de testes em segundo plano direto no terminal:
 
 ```bash
-npx cypress run
+yarn cypress run
 ```
 
+### 📈 Execução de Testes com Gerador de Relatório Allure
+
+Execute os testes habilitando a coleta de dados do Allure:
+
+```bash
+yarn cypress run --env allure=true
+```
+
+### 📊 Visualizar o Relatório do Allure
+
+Após a execução dos testes com a flag do Allure habilitada, inicie o servidor local para visualizar o relatório interativo no seu navegador:
+
+```bash
+yarn allure serve
+```
 ### 🎯 Executar Apenas um Arquivo Específico
 
 Para executar um spec isolado via terminal:
 
 ```bash
-npx cypress run --spec "cypress/e2e/NOME_DO_TESTE.cy.js"
+yarn cypress run --spec "cypress/e2e/NOME_DO_TESTE.cy.js"
 ```
 
 ---
