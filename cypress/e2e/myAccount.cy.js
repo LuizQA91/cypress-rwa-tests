@@ -20,21 +20,11 @@ describe('Validação da Tela My Account', () => {
             .fillPhone(newPhone)
             .submit();
 
-        cy.get(MY_ACCOUNT_LOCATORS.FIRST_NAME_INPUT).then(($input) => {
-            expect($input.val()).to.equal(newFirstName);
-        });
+        cy.get(MY_ACCOUNT_LOCATORS.FIRST_NAME_INPUT).should('have.value', newFirstName);
+        cy.get(MY_ACCOUNT_LOCATORS.LAST_NAME_INPUT).should('have.value', newLastName);
+        cy.get(MY_ACCOUNT_LOCATORS.EMAIL_INPUT).should('have.value', newEmail);
+        cy.get(SIDENAV_LOCATORS.USER_FULL_NAME).should('contain', newFirstName);
 
-        cy.get(MY_ACCOUNT_LOCATORS.LAST_NAME_INPUT).then(($input) => {
-            expect($input.val()).to.equal(newLastName);
-        });
-
-        cy.get(MY_ACCOUNT_LOCATORS.EMAIL_INPUT).then(($input) => {
-            expect($input.val()).to.equal(newEmail);
-        });
-
-        cy.get(SIDENAV_LOCATORS.USER_FULL_NAME).then(($fullName) => {
-            expect($fullName.text().trim()).to.contain(newFirstName);
-        });
     });
     it('Exibe mensagem de erro e botão Salvar desabilitado quando campo First Name vazio', () => {
         MyAccountPage.clearFirstName();
