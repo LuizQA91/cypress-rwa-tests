@@ -20,12 +20,13 @@ jobs:
         with:
           node-version: 22
 
-      # 3. Clona, instala e inicializa o RWA com a flag oficial de CI
+      # 3. Clona, instala dependências e inicia o RWA em segundo plano
       - name: Setup and Start RWA App
         run: |
           git clone https://github.com/cypress-io/cypress-realworld-app.git
           cd cypress-realworld-app
           yarn install
+          yarn build
           yarn start:ci &
           npx wait-on http://localhost:3000 http://localhost:3001
 
