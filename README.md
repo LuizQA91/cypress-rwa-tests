@@ -137,7 +137,7 @@ yarn cypress run --env allure=true
 
 ### 📊 Visualizar o Relatório do Allure
 
-Após a execução dos testes com a flag do Allure habilitada, inicie o servidor local para visualizar o relatório interativo no seu navegador:
+Após a execução dos testes, inicie o servidor local para visualizar o relatório interativo no seu navegador:
 
 ```bash
 yarn allure serve
