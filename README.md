@@ -102,7 +102,7 @@ module.exports = defineConfig({
 E adicione no arquivo `cypress/support/e2e.js`:
 
 ```javascript
-import '@shelex/cypress-allure-plugin';
+require('@shelex/cypress-allure-plugin');
 ```
 
 ---
