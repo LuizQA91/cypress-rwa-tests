@@ -20,13 +20,13 @@ jobs:
         with:
           node-version: 22
 
-      # 3. Clona, instala dependências e inicia o RWA (Front na 3000 e Back na 3001)
+      # 3. Clona, instala e inicia o RWA em ambiente de teste (Front na 3000 e Back na 3001)
       - name: Setup and Start RWA App
         run: |
           git clone https://github.com/cypress-io/cypress-realworld-app.git
           cd cypress-realworld-app
           yarn install
-          yarn dev &
+          NODE_ENV=test yarn dev &
           npx wait-on http://localhost:3000 http://localhost:3001
 
       # 4. Executa a suíte de testes do Cypress
