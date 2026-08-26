@@ -8,9 +8,8 @@ describe('Validação da tela Notifications', () => {
     });
 
     it('Valida que existem notificações na lista', () => {
-        cy.get(NotificationsPage.notificationListItem).then(($items) => {
-            expect($items.length).to.be.greaterThan(0);
-        });
+        cy.get(NotificationsPage.notificationListItem)
+            .should('have.length.greaterThan', 0);
     });
 
     it('Valida botão Dismiss', () => {
@@ -19,9 +18,10 @@ describe('Validação da tela Notifications', () => {
 
             NotificationsPage.dismissFirstNotification();
 
-            cy.get(NotificationsPage.notificationListItem).then(($itemsAfter) => {
-                expect($itemsAfter.length).to.be.lessThan(initialCount);
-            });
+            cy.get(NotificationsPage.notificationListItem)
+                .should(($itemsAfter) => {
+                    expect($itemsAfter.length).to.be.lessThan(initialCount);
+                });
         });
     });
 });
