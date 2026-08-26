@@ -1,4 +1,3 @@
-import users from '../fixtures/users.json';
 import { LOGIN_LOCATORS } from '../support/locators';
 
 class LoginPage {
@@ -13,7 +12,7 @@ class LoginPage {
     }
 
     fillPassword(password) {
-        cy.get(LOGIN_LOCATORS.PASSWORD).type(password);
+        cy.get(LOGIN_LOCATORS.PASSWORD, { log: false }).type(password, { log: false });
         return this;
     }
 
@@ -22,11 +21,10 @@ class LoginPage {
         return this;
     }
 
-    login() {
-        cy.resetDb();
+    login(username, password) {
         this.visit();
-        this.fillUsername(users.validUser.username);
-        this.fillPassword(users.validUser.password);
+        this.fillUsername(username);
+        this.fillPassword(password);
         this.submit();
         cy.url().should('not.include', '/signin');
         return this;

@@ -2,10 +2,11 @@ import LoginPage from '../pages/LoginPage';
 import HomePage from '../pages/HomePage';
 import TransactionDetailPage from '../pages/TransactionDetailPage';
 import { TRANSACTION_LOCATORS, TRANSACTION_DETAIL_LOCATORS } from '../support/locators';
+import user from '../fixtures/users.json';
 
 describe('Validação dos Detalhes da Transação', () => {
     beforeEach(() => {
-        LoginPage.login();
+        LoginPage.login(user.validUser.username, user.validUser.password);
         HomePage.goToHome().clickFirstTransaction();
     });
 

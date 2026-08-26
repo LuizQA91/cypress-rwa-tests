@@ -1,9 +1,10 @@
 import LoginPage from '../pages/LoginPage';
 import TransactionPage from '../pages/TransactionPage';
+import user from '../fixtures/users.json';
 
 describe('Fluxo de Transações', () => {
     beforeEach(() => {
-        LoginPage.login();
+        LoginPage.login(user.validUser.username, user.validUser.password);
     });
 
     it('Solicita um pagamento e valida o registro na aba Mine', () => {

@@ -1,10 +1,11 @@
 import LoginPage from '../pages/LoginPage';
 import MyAccountPage from '../pages/MyAccountPage';
 import { MY_ACCOUNT_LOCATORS, SIDENAV_LOCATORS } from '../support/locators';
+import user from '../fixtures/users.json';
 
 describe('Validação da Tela My Account', () => {
     beforeEach(() => {
-        LoginPage.login();
+        LoginPage.login(user.validUser.username, user.validUser.password);
         MyAccountPage.goToMyAccount();
     });
 

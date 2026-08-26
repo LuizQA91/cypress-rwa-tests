@@ -79,3 +79,23 @@ export const NOTIFICATION_LOCATORS = {
   NOTIFICATION_ITEM: '[data-test^="notification-list-item"]',
   DISMISS_BTN: '[data-test^="notification-mark-read"]'
 };
+
+export const SIGNUP_LOCATORS = {
+  SIGNUP_LINK: '[data-test="signup"]',
+  FIRST_NAME_INPUT: '[data-test="signup-first-name"]',
+  LAST_NAME_INPUT: '[data-test="signup-last-name"]',
+  USERNAME_INPUT: '[data-test="signup-username"]',
+  PASSWORD_INPUT: '[data-test="signup-password"]',
+  CONFIRM_PASSWORD_INPUT: '[data-test="signup-confirmPassword"]',
+  SUBMIT_BTN: '[data-test="signup-submit"]',
+};
+
+export const ONBOARDING_LOCATORS = {
+  NEXT_BTN: '[data-test="user-onboarding-next"]',
+  BANK_NAME_INPUT: '[data-test="bankaccount-bankName-input"]',
+  ROUTING_NUMBER_INPUT: '[data-test="bankaccount-routingNumber-input"]',
+  ACCOUNT_NUMBER_INPUT: '[data-test="bankaccount-accountNumber-input"]',
+  SAVE_BANK_BTN: '[data-test="bankaccount-submit"]',
+  DONE_BTN: '[data-test="user-onboarding-next"]',
+};
+

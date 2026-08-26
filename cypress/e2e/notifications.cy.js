@@ -1,9 +1,10 @@
 import LoginPage from '../pages/LoginPage';
 import NotificationsPage from '../pages/NotificationsPage';
+import user from '../fixtures/users.json';
 
 describe('Validação da tela Notifications', () => {
     beforeEach(() => {
-        LoginPage.login();
+        LoginPage.login(user.validUser.username, user.validUser.password);
         NotificationsPage.goToNotifications();
     });
 

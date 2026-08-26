@@ -1,9 +1,10 @@
 import { TAB_LOCATORS } from '../support/locators'
 import LoginPage from '../pages/LoginPage';
+import user from '../fixtures/users.json';
 
 describe('Validação de Navegação das Abas Superiores', () => {
     beforeEach(() => {
-        LoginPage.login();
+        LoginPage.login(user.validUser.username, user.validUser.password);
     });
 
     it('Navega para Friends', () => {

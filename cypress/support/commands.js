@@ -24,15 +24,15 @@ Cypress.Commands.add('errorMsg', () => {
 });
 
 // Criar conta bancária
-Cypress.Commands.add('createBankAccount', ({ bank }) => {
+Cypress.Commands.add('createBankAccount', (bankData) => {
   BankAccountsPage.clickCreateNew()
-    .fillBankName(bank.name)
-    .fillRoutingNumber(bank.routingNumber)
-    .fillAccountNumber(bank.accountNumber)
+    .fillBankName(bankData.name)
+    .fillRoutingNumber(bankData.routingNumber)
+    .fillAccountNumber(bankData.accountNumber)
     .save();
 
   cy.get(BankAccountsPage.bankListItem)
-    .contains(bank.name)
+    .contains(bankData.name)
     .should('be.visible');
 });
 

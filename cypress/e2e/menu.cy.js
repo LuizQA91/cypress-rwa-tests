@@ -1,11 +1,12 @@
-import users from '../fixtures/users.json'
+import user from '../fixtures/users.json'
 import { MENU_LOCATORS, HOME } from '../support/locators'
+import LoginPage from '../pages/LoginPage';
 
 describe('Validação de Navegação do Menu Lateral', () => {
   beforeEach(() => {
     cy.resetDb();
     cy.visit('/signin');
-    cy.login(users.validUser.username, users.validUser.password);
+    LoginPage.login(user.validUser.username, user.validUser.password);
     cy.url().should('not.include', '/signin');
   });
 
