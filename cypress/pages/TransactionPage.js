@@ -51,7 +51,7 @@ class TransactionPage {
     validateBalanceDecreased(initialBalance, amountPaid) {
         const expectedBalance = initialBalance - Number(amountPaid);
 
-        this.getUserBalance().then((currentBalance) => {
+        this.getUserBalance().should((currentBalance) => {
             expect(currentBalance.toFixed(2)).to.eq(expectedBalance.toFixed(2));
         });
 
