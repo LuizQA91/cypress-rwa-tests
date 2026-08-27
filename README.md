@@ -70,53 +70,18 @@ yarn install
 
 ---
 
-
-## 📊 Configuração do Allure Report
-
-Para instalar os pacotes do Allure Report no projeto, execute:
-
-```bash
-yarn add -D @shelex/cypress-allure-plugin allure-commandline
-```
-
-Certifique-se de configurar a integração no seu arquivo `cypress.config.js`:
-
-```javascript
-const { defineConfig } = require('cypress');
-const allureWriter = require('@shelex/cypress-allure-plugin/writer');
-
-module.exports = defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      allureWriter(on, config);
-      return config;
-    },
-    env: {
-      allure: true,
-      allureReuseAfterSpec: true
-    }
-  }
-});
-```
-
-E adicione no arquivo `cypress/support/e2e.js`:
-
-```javascript
-require('@shelex/cypress-allure-plugin');
-```
-
----
-
 ## 🚀 Executando os Testes e Gerando Relatórios
 
 Com a aplicação RWA rodando no `http://localhost:3000`, execute os testes e gere os relatórios do Allure utilizando as opções abaixo:
+
+> ⚠️ **Nota:** Os comandos estão configurados via script no arquivo package.json, então basta digitar um dos comandos abaixo.
 
 ### 🎭 Modo Interativo (Interface Gráfica do Cypress)
 
 Abre o Test Runner do Cypress para acompanhar visualmente a execução em tempo real:
 
 ```bash
-yarn cypress open
+yarn open
 ```
 
 ### ⚡ Modo Headless (Execução Silenciosa no Terminal)
@@ -124,7 +89,7 @@ yarn cypress open
 Roda toda a suíte de testes em segundo plano direto no terminal:
 
 ```bash
-yarn cypress run
+yarn test
 ```
 
 ### 📈 Execução de Testes com Gerador de Relatório Allure
@@ -132,16 +97,9 @@ yarn cypress run
 Execute os testes habilitando a coleta de dados do Allure:
 
 ```bash
-yarn cypress run --env allure=true
+yarn allure
 ```
 
-### 📊 Visualizar o Relatório do Allure
-
-Após a execução dos testes, inicie o servidor local para visualizar o relatório interativo no seu navegador:
-
-```bash
-yarn allure serve
-```
 ### 🎯 Executar Apenas um Arquivo Específico
 
 Para executar um spec isolado via terminal:
@@ -155,16 +113,20 @@ yarn cypress run --spec "cypress/e2e/NOME_DO_TESTE.cy.js"
 ## 📂 Estrutura do Projeto
 
 ```text
+├── .github/             # Workflows do GitHub Actions (CI/CD)
 ├── cypress/
-│   ├── e2e/               # Arquivos de testes agrupados por funcionalidade
-│   ├── fixtures/          # Massas de dados estáticas (JSON)
-│   ├── pages/             # Mapeamento de elementos e ações das páginas (Page Objects)
-│   └── support/           # Comandos customizados (commands.js) e configurações globais (e2e.js)
-├── .gitignore             # Arquivos e pastas ignorados pelo Git
-├── cypress.config.js      # Configurações globais do Cypress
-├── package-lock.json      # Mapeamento exato da árvore de dependências
-├── package.json           # Dependências e scripts do projeto
-└── README.md              # Documentação do projeto
+│   ├── e2e/             # Arquivos de testes agrupados por funcionalidade
+│   ├── fixtures/        # Massas de dados estáticas (JSON)
+│   ├── pages/           # Mapeamento de elementos e ações das páginas (Page Objects)
+│   └── support/         # Comandos customizados (commands.js) e configurações globais (e2e.js)
+├── .gitignore           # Arquivos e pastas ignorados pelo Git
+├── cypress.config.js    # Configurações globais do Cypress
+├── eslint.config.mjs    # Arquivo de configuração de regras e padronização do ESLint
+├── package-lock.json    # Mapeamento exato da árvore de dependências (npm)
+├── package.json         # Dependências, scripts e metadados do projeto
+├── README.md            # Documentação principal do projeto
+└── yarn.lock            # Mapeamento exato da árvore de dependências (Yarn)
+
 ```
 
 ---
