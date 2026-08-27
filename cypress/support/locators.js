@@ -35,7 +35,6 @@ export const TRANSACTION_LOCATORS = {
   REQUEST_PAYMENT_BTN: '[data-test="transaction-create-submit-request"]',
   RETURN_TO_TRANSACTIONS_BTN: '[data-test="new-transaction-return-to-transactions"]',
   MINE_TAB: '[data-test="nav-personal-tab"]',
-  TRANSACTION_ITEM: '[data-test^="transaction-item"]',
   SUCCESS_TITLE: 'h2, [data-test="alert-bar"]',
   PAY_BTN: '[data-test="transaction-create-submit-payment"]',
   USER_BALANCE: '[data-test="sidenav-user-balance"]'

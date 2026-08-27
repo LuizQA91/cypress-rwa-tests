@@ -4,15 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint cypress/ && cypress run",
+    "open": "eslint cypress/ && cypress open",
+    "lint": "eslint cypress/",
+    "allure": "eslint cypress/ && cypress run --env allure=true && allure serve"
   },
   "keywords": [],
   "author": "Luiz Augusto Z. Santos",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@shelex/cypress-allure-plugin": "^2.41.2",
     "allure-commandline": "^2.43.0",
-    "cypress": "^15.21.0"
+    "cypress": "^15.21.0",
+    "eslint": "^10.9.1",
+    "eslint-plugin-cypress": "^7.0.1"
   }
 }

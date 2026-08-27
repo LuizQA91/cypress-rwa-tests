@@ -1,4 +1,4 @@
-import { SIGNUP_LOCATORS, LOGIN_LOCATORS, ONBOARDING_LOCATORS, SIDENAV_LOCATORS } from '../support/locators';
+import { SIGNUP_LOCATORS, ONBOARDING_LOCATORS, SIDENAV_LOCATORS } from '../support/locators';
 
 class OnboardingPage {
     visitSignInPage() {

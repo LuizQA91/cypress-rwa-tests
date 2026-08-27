@@ -4,8 +4,10 @@ import TransactionPage from '../pages/TransactionPage';
 
 // Realizar o login
 Cypress.Commands.add('login', (username, password) => {
-  cy.get(LOGIN_LOCATORS.USERNAME).clear().type(username);
-  cy.get(LOGIN_LOCATORS.PASSWORD).clear().type(password, { log: false });
+  cy.get(LOGIN_LOCATORS.USERNAME).clear();
+  cy.get(LOGIN_LOCATORS.USERNAME).type(username);
+  cy.get(LOGIN_LOCATORS.PASSWORD).clear();
+  cy.get(LOGIN_LOCATORS.PASSWORD).type(password, { log: false });
   cy.get('[data-test="signin-submit"]').click();
 });
 
