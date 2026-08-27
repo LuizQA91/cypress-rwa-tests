@@ -4,6 +4,7 @@ import user from '../fixtures/users.json';
 
 describe('Fluxo de Transações', () => {
     beforeEach(() => {
+        cy.resetDb();
         LoginPage.login(user.validUser.username, user.validUser.password);
     });
 
