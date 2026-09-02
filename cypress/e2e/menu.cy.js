@@ -1,13 +1,13 @@
-import user from '../fixtures/users.json'
 import { MENU_LOCATORS, HOME } from '../support/locators'
 import LoginPage from '../pages/LoginPage';
 
 describe('Validação de Navegação do Menu Lateral', () => {
   beforeEach(() => {
     cy.resetDb();
-    cy.visit('/signin');
-    LoginPage.login(user.validUser.username, user.validUser.password);
-    cy.url().should('not.include', '/signin');
+    const { validUser } = Cypress.env('users');
+    LoginPage
+      .visit()
+      .login(validUser.username, validUser.password)
   });
 
   it('Navega para My Account', () => {

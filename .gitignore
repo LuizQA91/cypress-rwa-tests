@@ -5,3 +5,4 @@ cypress/downloads/
 allure-results/
 allure-report/
 .env
+cypress.env.json

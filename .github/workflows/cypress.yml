@@ -34,6 +34,10 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           working-directory: .
+        env:
+          CYPRESS_VALID_USER_NAME: ${{ secrets.CYPRESS_VALID_USER_NAME }}
+          CYPRESS_VALID_USER_USERNAME: ${{ secrets.CYPRESS_VALID_USER_USERNAME }}
+          CYPRESS_VALID_USER_PASSWORD: ${{ secrets.CYPRESS_VALID_USER_PASSWORD }}
 
       # 5. Salva screenshots em caso de falha
       - name: Upload Cypress Screenshots

@@ -1,11 +1,13 @@
 import LoginPage from '../pages/LoginPage';
 import TransactionPage from '../pages/TransactionPage';
-import user from '../fixtures/users.json';
 
 describe('Fluxo de Transações', () => {
     beforeEach(() => {
         cy.resetDb();
-        LoginPage.login(user.validUser.username, user.validUser.password);
+        const { validUser } = Cypress.env('users');
+        LoginPage
+            .visit()
+            .login(validUser.username, validUser.password)
     });
 
     it('Solicita um pagamento e valida o registro na aba Mine', () => {
@@ -14,7 +16,7 @@ describe('Fluxo de Transações', () => {
 
             cy.requestPayment(amount, note);
 
-            cy.validateTransaction(amount, note);
+            TransactionPage.validateTransaction(amount, note);
         });
     });
 
@@ -24,7 +26,7 @@ describe('Fluxo de Transações', () => {
 
             cy.makePayment(amount, note);
 
-            cy.validateTransaction(amount, note);
+            TransactionPage.validateTransaction(amount, note);
         });
     });
 

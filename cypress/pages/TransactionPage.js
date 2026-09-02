@@ -1,4 +1,4 @@
-import { TRANSACTION_LOCATORS } from '../support/locators';
+import { TRANSACTION_LOCATORS, TAB_LOCATORS } from '../support/locators';
 
 class TransactionPage {
     clickNewTransaction() {
@@ -53,6 +53,16 @@ class TransactionPage {
 
         this.getUserBalance().should((currentBalance) => {
             expect(currentBalance.toFixed(2)).to.eq(expectedBalance.toFixed(2));
+        });
+
+        return this;
+    }
+    validateTransaction(amount, note) {
+        cy.get(TAB_LOCATORS.MINE).click();
+
+        cy.get(TRANSACTION_LOCATORS.TRANSACTION_ITEM).first().should(($item) => {
+            expect($item.text()).to.include(note);
+            expect($item.text()).to.include(amount);
         });
 
         return this;

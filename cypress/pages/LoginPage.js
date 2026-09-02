@@ -29,6 +29,30 @@ class LoginPage {
         cy.url().should('not.include', '/signin');
         return this;
     }
+
+    validateLogin(validUser) {
+        cy.get(LOGIN_LOCATORS.USER_FULL_NAME)
+            .should('be.visible')
+            .and('contain.text', validUser.name);
+        return this;
+    }
+
+    loginError(username, password) {
+        this.visit();
+        this.fillUsername(username);
+        this.fillPassword(password);
+        this.submit();
+        cy.url().should('include', '/signin');
+        return this;
+    }
+
+    errorMessage() {
+        cy.get('[data-test="signin-error"]')
+            .should('be.visible')
+            .and('have.text', 'Username or password is invalid');
+        return this
+    }
+
 }
 
 export default new LoginPage();

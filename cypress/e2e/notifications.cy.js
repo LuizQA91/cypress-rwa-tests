@@ -1,10 +1,12 @@
 import LoginPage from '../pages/LoginPage';
 import NotificationsPage from '../pages/NotificationsPage';
-import user from '../fixtures/users.json';
 
-describe('Validação da tela Notifications', () => {
+describe('Validação da Tela Notifications', () => {
     beforeEach(() => {
-        LoginPage.login(user.validUser.username, user.validUser.password);
+        const { validUser } = Cypress.env('users');
+        LoginPage
+            .visit()
+            .login(validUser.username, validUser.password)
         NotificationsPage.goToNotifications();
     });
 

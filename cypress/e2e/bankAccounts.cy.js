@@ -1,12 +1,14 @@
 import LoginPage from '../pages/LoginPage';
 import BankAccountsPage from '../pages/BankAccountsPage';
-import user from '../fixtures/users.json';
 import banksData from '../fixtures/banks.json';
 
-describe('Validação da tela Bank Accounts', () => {
+describe('Validação da Tela Bank Accounts', () => {
     beforeEach(() => {
         cy.resetDb();
-        LoginPage.login(user.validUser.username, user.validUser.password);
+        const { validUser } = Cypress.env('users');
+        LoginPage
+            .visit()
+            .login(validUser.username, validUser.password)
         BankAccountsPage.goToBankAccounts();
     });
 

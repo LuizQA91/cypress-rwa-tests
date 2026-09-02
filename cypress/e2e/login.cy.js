@@ -1,31 +1,29 @@
-import users from '../fixtures/users.json';
-import { LOGIN_LOCATORS } from '../support/locators';
+import user from '../fixtures/users.json';
+import LoginPage from '../pages/LoginPage';
 
 describe('Autenticação de Usuários', () => {
   beforeEach(() => {
     cy.resetDb();
-    cy.visit('/signin')
+    LoginPage.visit();
   });
 
   it('Realiza login com sucesso', () => {
-    cy.login(users.validUser.username, users.validUser.password);
-
-    cy.url().should('not.include', '/signin');
-    cy.get(LOGIN_LOCATORS.USER_FULL_NAME)
-      .should('be.visible')
-      .and('contain.text', users.validUser.name);
+    const { validUser } = Cypress.env('users');
+    LoginPage
+      .login(validUser.username, validUser.password)
+      .validateLogin(validUser);
   });
 
   it('Exibe mensagem de erro para usuário incorreto', () => {
-    cy.login(users.invalidUser.username, users.validUser.password);
-
-    cy.errorMsg();
+    LoginPage
+      .loginError(user.invalidUser.username, user.validUser.password)
+      .errorMessage();
   });
 
   it('Exibe mensagem de erro para senha incorreta', () => {
 
-    cy.login(users.validUser.username, users.invalidUser.password);
-
-    cy.errorMsg();
+    LoginPage
+      .loginError(user.validUser.username, user.invalidUser.password)
+      .errorMessage();
   });
 });
