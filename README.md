@@ -226,23 +226,25 @@ yarn cypress run --spec "cypress/e2e/NOME_DO_TESTE.cy.js"
 ```
 
 ---
-
 ## 📂 Estrutura do Projeto
 
 ```text
-├── .github/             # Workflows do GitHub Actions (CI/CD)
+├── .github/
+│   └── workflows/
+│       └── cypress.yml      # Workflow de execução dos testes no GitHub Actions (CI/CD)
 ├── cypress/
-│   ├── e2e/             # Arquivos de testes agrupados por funcionalidade
-│   ├── fixtures/        # Massas de dados estáticas (JSON)
-│   ├── pages/           # Mapeamento de elementos e ações das páginas (Page Objects)
-│   └── support/         # Comandos customizados (commands.js) e configurações globais (e2e.js)
-├── .gitignore           # Arquivos e pastas ignorados pelo Git
-├── cypress.config.js    # Configurações globais do Cypress
-├── eslint.config.mjs    # Arquivo de configuração de regras e padronização do ESLint
-├── package-lock.json    # Mapeamento exato da árvore de dependências (npm)
-├── package.json         # Dependências, scripts e metadados do projeto
-├── README.md            # Documentação principal do projeto
-└── yarn.lock            # Mapeamento exato da árvore de dependências (Yarn)
+│   ├── e2e/                 # Arquivos de testes agrupados por funcionalidade (.cy.js)
+│   ├── fixtures/            # Massas de dados estáticas (JSON)
+│   ├── pages/               # Mapeamento de elementos e ações das páginas (Page Objects)
+│   └── support/             # Comandos customizados (commands.js) e configurações globais (e2e.js)
+├── .env.example             # Modelo público das variáveis de ambiente necessárias
+├── .gitignore               # Arquivos e pastas ignorados pelo Git
+├── cypress.config.js        # Configurações globais do Cypress e integração com dotenv
+├── eslint.config.mjs        # Arquivo de configuração de regras e padronização do ESLint
+├── package-lock.json        # Mapeamento exato da árvore de dependências (npm)
+├── package.json             # Dependências, scripts e metadados do projeto
+├── README.md                # Documentação principal do projeto
+└── yarn.lock                # Mapeamento exato da árvore de dependências (Yarn)
 
 ```
 
