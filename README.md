@@ -124,11 +124,13 @@ O objetivo deste repositório é aplicar boas práticas de automação de testes
 * **`Valida o débito do saldo`** | *Positivo*  
   Obtém o valor do saldo antes do pagamento, executa a transferência e valida se o valor final reflete a subtração exata da quantia enviada.
 
+---
+
 ### 🔌 `api.cy.js`
 #### **Suíte:** `Testes de API`
 
 ##### **Contexto:** `Autenticação e Sessão (/signin)`
-* **`Realiza autenticação via API com sucesso`** | *Positivo*  
+* **`Realiza autenticação com sucesso`** | *Positivo*  
   Valida a autenticação via endpoint `/login` retornando status 200 e as informações do usuário.
 * **`Retorna erro 401 ao autenticar com senha inválida`** | *Negativo*  
   Garante que a API bloqueie tentativas de login com senha incorreta retornando status HTTP 401.
@@ -162,11 +164,11 @@ O objetivo deste repositório é aplicar boas práticas de automação de testes
 ##### **Contexto:** `Notificações (/notifications)`
 * **`Lista as notificações do usuário`** | *Positivo*  
   Valida a listagem de notificações pertencentes ao usuário logado.
-* **`Descarta uma notificação via API`** | *Positivo*  
+* **`Descarta uma notificação`** | *Positivo*  
   Valida o descarte/marcação de leitura de uma notificação via requisição `PATCH`, confirmando o retorno HTTP 204.
 
 ##### **Contexto:** `Usuários (/users)`
-* **`Cadastra um novo usuário via API`** | *Positivo*  
+* **`Cadastra um novo usuário`** | *Positivo*  
   Valida o registro de uma nova conta de usuário no endpoint `/users` retornando status HTTP 201 Created.
 
 ## 💻 Pré-requisitos

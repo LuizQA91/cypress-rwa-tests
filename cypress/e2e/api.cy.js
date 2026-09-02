@@ -10,7 +10,7 @@ describe('Testes de API', () => {
     });
 
     context('Autenticação e Sessão (/signin)', () => {
-        it('Realiza autenticação via API com sucesso', () => {
+        it('Realiza autenticação com sucesso', () => {
             const { validUser } = Cypress.env('users');
 
             ApiPage.login(validUser.username, validUser.password).then((response) => {
@@ -159,7 +159,7 @@ describe('Testes de API', () => {
             });
         });
 
-        it('Descarta uma notificação via API', () => {
+        it('Descarta uma notificação', () => {
             ApiPage.getNotifications().then((response) => {
                 expect(response.status).to.eq(200);
 
@@ -173,7 +173,7 @@ describe('Testes de API', () => {
     });
 
     context('Usuários (/users)', () => {
-        it('Cadastra um novo usuário via API', () => {
+        it('Cadastra um novo usuário', () => {
             ApiPage.createUser(
                 newUser.firstName,
                 newUser.lastName,
