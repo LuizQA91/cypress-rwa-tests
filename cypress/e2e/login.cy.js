@@ -15,15 +15,16 @@ describe('Autenticação de Usuários', () => {
   });
 
   it('Exibe mensagem de erro para usuário incorreto', () => {
+    const { validUser } = Cypress.env('users');
     LoginPage
-      .loginError(user.invalidUser.username, user.validUser.password)
+      .loginError(user.invalidUser.username, validUser.password)
       .errorMessage();
   });
 
   it('Exibe mensagem de erro para senha incorreta', () => {
-
+    const { validUser } = Cypress.env('users');
     LoginPage
-      .loginError(user.validUser.username, user.invalidUser.password)
+      .loginError(validUser.username, user.invalidUser.password)
       .errorMessage();
   });
 });

@@ -127,12 +127,47 @@ O objetivo deste repositório é aplicar boas práticas de automação de testes
 ### 🔌 `api.cy.js`
 #### **Suíte:** `Testes de API`
 
+##### **Contexto:** `Autenticação e Sessão (/signin)`
 * **`Realiza autenticação via API com sucesso`** | *Positivo*  
   Valida a autenticação via endpoint `/login` retornando status 200 e as informações do usuário.
 * **`Retorna erro 401 ao autenticar com senha inválida`** | *Negativo*  
-  Garante que a API bloqueie tentativas de login incorretas retornando status HTTP 401.
+  Garante que a API bloqueie tentativas de login com senha incorreta retornando status HTTP 401.
+* **`Retorna erro 401 ao autenticar com usuário não cadastrado`** | *Negativo*  
+  Garante que a API bloqueie a autenticação para usuários inexistentes no banco com status HTTP 401.
+* **`Realiza logout e encerra a sessão`** | *Positivo*  
+  Valida o encerramento com sucesso da sessão do usuário no endpoint `/logout`.
+
+##### **Contexto:** `Contas Bancárias (/bankAccounts)`
 * **`Lista as contas bancárias do usuário autenticado`** | *Positivo*  
-  Valida a consulta de contas bancárias no endpoint `/bankAccounts` para um usuário com sessão ativa.
+  Valida a consulta e listagem de contas bancárias no endpoint `/bankAccounts` para um usuário autenticado.
+* **`Cadastra uma nova conta bancária`** | *Positivo*  
+  Valida o cadastro de uma nova conta bancária via API retornando status HTTP 200 e os dados salvos.
+* **`Retorna erro ao tentar cadastrar conta sem preencher campos obrigatórios`** | *Negativo*  
+  Garante que a API valide o payload e retorne erro com status HTTP 422 quando os campos obrigatórios não forem fornecidos.
+* **`Exclui uma conta bancária`** | *Positivo*  
+  Valida a remoção de uma conta bancária existente pelo seu ID retornando status HTTP 200.
+
+##### **Contexto:** `Transações (/transactions)`
+* **`Lista as transações públicas`** | *Positivo*  
+  Valida a recuperação da lista de transações públicas na aplicação.
+* **`Lista as transações pessoais do usuário`** | *Positivo*  
+  Valida a consulta ao histórico de transações vinculadas à conta do usuário autenticado.
+* **`Efetua um pagamento`** | *Positivo*  
+  Valida a criação e envio de um pagamento via API, confirmando a conversão do valor e retorno da transação.
+* **`Solicita um pagamento`** | *Positivo*  
+  Valida a requisição de cobrança entre usuários, garantindo a criação com o status pendente.
+* **`Retorna erro ao tentar criar transação com valor inválido`** | *Negativo*  
+  Valida a rejeição da API com status HTTP 422 ao tentar realizar transação com dados numéricos inválidos.
+
+##### **Contexto:** `Notificações (/notifications)`
+* **`Lista as notificações do usuário`** | *Positivo*  
+  Valida a listagem de notificações pertencentes ao usuário logado.
+* **`Descarta uma notificação via API`** | *Positivo*  
+  Valida o descarte/marcação de leitura de uma notificação via requisição `PATCH`, confirmando o retorno HTTP 204.
+
+##### **Contexto:** `Usuários (/users)`
+* **`Cadastra um novo usuário via API`** | *Positivo*  
+  Valida o registro de uma nova conta de usuário no endpoint `/users` retornando status HTTP 201 Created.
 
 ## 💻 Pré-requisitos
 

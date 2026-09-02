@@ -100,7 +100,12 @@ export const ONBOARDING_LOCATORS = {
 
 export const API_ENDPOINTS = {
     LOGIN: '/login',
+    LOGOUT: '/logout',
+    CHECK_AUTH: '/checkAuth',
     USERS: '/users',
     TRANSACTIONS: '/transactions',
-    BANK_ACCOUNTS: '/bankAccounts'
+    TRANSACTIONS_PUBLIC: '/transactions/public',
+    TRANSACTIONS_CONTACTS: '/transactions/contacts',
+    BANK_ACCOUNTS: '/bankAccounts',
+    NOTIFICATIONS: '/notifications'
 };
