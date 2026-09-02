@@ -5,6 +5,7 @@ import { TRANSACTION_LOCATORS, TRANSACTION_DETAIL_LOCATORS } from '../support/lo
 
 describe('Validação dos Detalhes da Transação', () => {
     beforeEach(() => {
+        cy.resetDb()
         const { validUser } = Cypress.env('users');
         LoginPage
             .visit()

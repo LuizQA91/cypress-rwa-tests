@@ -98,3 +98,9 @@ export const ONBOARDING_LOCATORS = {
   DONE_BTN: '[data-test="user-onboarding-next"]',
 };
 
+export const API_ENDPOINTS = {
+    LOGIN: '/login',
+    USERS: '/users',
+    TRANSACTIONS: '/transactions',
+    BANK_ACCOUNTS: '/bankAccounts'
+};

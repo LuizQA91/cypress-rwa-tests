@@ -3,6 +3,7 @@ import NotificationsPage from '../pages/NotificationsPage';
 
 describe('Validação da Tela Notifications', () => {
     beforeEach(() => {
+        cy.resetDb()
         const { validUser } = Cypress.env('users');
         LoginPage
             .visit()

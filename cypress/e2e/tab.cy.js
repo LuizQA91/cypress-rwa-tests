@@ -3,6 +3,7 @@ import LoginPage from '../pages/LoginPage';
 
 describe('Validação de Navegação das Abas Superiores', () => {
     beforeEach(() => {
+        cy.resetDb()
         const { validUser } = Cypress.env('users');
         LoginPage
             .visit()

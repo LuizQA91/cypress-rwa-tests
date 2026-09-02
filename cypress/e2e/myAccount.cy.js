@@ -4,6 +4,7 @@ import { MY_ACCOUNT_LOCATORS, SIDENAV_LOCATORS } from '../support/locators';
 
 describe('Validação da Tela My Account', () => {
     beforeEach(() => {
+        cy.resetDb()
         const { validUser } = Cypress.env('users');
         LoginPage
             .visit()

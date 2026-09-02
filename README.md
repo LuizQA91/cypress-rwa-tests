@@ -124,7 +124,15 @@ O objetivo deste repositório é aplicar boas práticas de automação de testes
 * **`Valida o débito do saldo`** | *Positivo*  
   Obtém o valor do saldo antes do pagamento, executa a transferência e valida se o valor final reflete a subtração exata da quantia enviada.
 
+### 🔌 `api.cy.js`
+#### **Suíte:** `Testes de API`
 
+* **`Realiza autenticação via API com sucesso`** | *Positivo*  
+  Valida a autenticação via endpoint `/login` retornando status 200 e as informações do usuário.
+* **`Retorna erro 401 ao autenticar com senha inválida`** | *Negativo*  
+  Garante que a API bloqueie tentativas de login incorretas retornando status HTTP 401.
+* **`Lista as contas bancárias do usuário autenticado`** | *Positivo*  
+  Valida a consulta de contas bancárias no endpoint `/bankAccounts` para um usuário com sessão ativa.
 
 ## 💻 Pré-requisitos
 
