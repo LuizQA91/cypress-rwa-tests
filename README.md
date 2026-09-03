@@ -11,7 +11,7 @@ O objetivo deste repositório é aplicar boas práticas de automação de testes
 ### 🛠️ Tecnologias Utilizadas
 
 * **[Cypress](https://www.cypress.io/)** — Framework de automação de testes E2E
-* **[Node.js](https://nodejs.org/)** — Ambiente de execução JavaScript (v18+)
+* **[Node.js](https://nodejs.org/)** — Ambiente de execução JavaScript (v22+)
 * **[JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)** — Linguagem utilizada na escrita dos testes
 * **[Real World App (RWA)](https://github.com/cypress-io/cypress-realworld-app)** — Aplicação sob teste
 
