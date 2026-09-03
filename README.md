@@ -33,7 +33,7 @@ O objetivo deste repositório é aplicar boas práticas de automação de testes
 
 * **`Exibe detalhes da transação`** | *Positivo*  
   Acessa o primeiro item da lista na Home.
-* **`Altera o contador do botão Like`** | *Positivo* 00 
+* **`Altera o contador do botão Like`** | *Positivo*
   Curte uma transação específica e verifica se o número do contador de likes foi incrementado em 1 unidade.
 * **`Adiciona um comentário`** | *Positivo*  
   Escreve um novo comentário no campo da transação e valida se a mensagem aparece corretamente listada.
