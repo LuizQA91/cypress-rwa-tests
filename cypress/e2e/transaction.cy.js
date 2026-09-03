@@ -31,16 +31,18 @@ describe('Fluxo de Transações', () => {
     });
 
     it('Valida o débito do saldo', () => {
+        cy.intercept('POST', '/transactions').as('postTransaction');
+
         cy.fixture('transactionData').then((data) => {
             const { amount, note } = data.directPayment;
 
             TransactionPage.getUserBalance().then((initialBalance) => {
-
                 cy.makePayment(amount, note);
 
+                // Aguarda o backend confirmar a transação
+                cy.wait('@postTransaction');
+
                 TransactionPage.validateBalanceDecreased(initialBalance, amount);
-
-
             });
         });
     });
