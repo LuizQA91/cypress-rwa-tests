@@ -39,7 +39,6 @@ describe('Fluxo de Transações', () => {
             TransactionPage.getUserBalance().then((initialBalance) => {
                 cy.makePayment(amount, note);
 
-                // Aguarda o backend confirmar a transação
                 cy.wait('@postTransaction');
 
                 TransactionPage.validateBalanceDecreased(initialBalance, amount);
