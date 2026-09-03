@@ -59,7 +59,7 @@ describe('Testes de API', () => {
             });
         });
 
-        it('Cadastra uma nova conta bancária', () => {
+        it('Cadastra nova conta bancária', () => {
             const { name, routingNumber, accountNumber } = bank.bank1;
 
             ApiPage.createBankAccount(name, routingNumber, accountNumber).then((response) => {
@@ -76,7 +76,7 @@ describe('Testes de API', () => {
             });
         });
 
-        it('Exclui uma conta bancária', () => {
+        it('Exclui conta bancária', () => {
             ApiPage.getBankAccounts().then((response) => {
                 const accountId = response.body.results[0].id;
                 ApiPage.deleteBankAccount(accountId).then((deleteRes) => {
