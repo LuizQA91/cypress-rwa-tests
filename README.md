@@ -142,11 +142,11 @@ O objetivo deste repositório é aplicar boas práticas de automação de testes
 ##### **Contexto:** `Contas Bancárias (/bankAccounts)`
 * **`Lista as contas bancárias do usuário autenticado`** | *Positivo*  
   Valida a consulta e listagem de contas bancárias no endpoint `/bankAccounts` para um usuário autenticado.
-* **`Cadastra uma nova conta bancária`** | *Positivo*  
+* **`Cadastra nova conta bancária`** | *Positivo*  
   Valida o cadastro de uma nova conta bancária via API retornando status HTTP 200 e os dados salvos.
 * **`Retorna erro ao tentar cadastrar conta sem preencher campos obrigatórios`** | *Negativo*  
   Garante que a API valide o payload e retorne erro com status HTTP 422 quando os campos obrigatórios não forem fornecidos.
-* **`Exclui uma conta bancária`** | *Positivo*  
+* **`Exclui conta bancária`** | *Positivo*  
   Valida a remoção de uma conta bancária existente pelo seu ID retornando status HTTP 200.
 
 ##### **Contexto:** `Transações (/transactions)`

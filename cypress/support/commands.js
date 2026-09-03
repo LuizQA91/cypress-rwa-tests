@@ -45,6 +45,7 @@ Cypress.Commands.add('requestPayment', (amount, note) => {
     .clickReturnToTransactions();
 });
 
+// Cadastrar novo cliente
 Cypress.Commands.add('createClient', (user, bank) => {
   OnboardingPage
     .visitSignInPage()

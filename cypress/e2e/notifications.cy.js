@@ -17,15 +17,17 @@ describe('Validação da Tela Notifications', () => {
     });
 
     it('Valida botão Dismiss', () => {
+        cy.intercept('PATCH', '/notifications/*').as('dismissNotification');
+
         cy.get(NotificationsPage.notificationListItem).then(($itemsBefore) => {
             const initialCount = $itemsBefore.length;
 
             NotificationsPage.dismissFirstNotification();
 
+            cy.wait('@dismissNotification');
+
             cy.get(NotificationsPage.notificationListItem)
-                .should(($itemsAfter) => {
-                    expect($itemsAfter.length).to.be.lessThan(initialCount);
-                });
+                .should('have.length', initialCount - 1);
         });
     });
 });
